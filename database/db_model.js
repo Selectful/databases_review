@@ -34,6 +34,7 @@ code below for an example. Also, refer to the
 sequelize docs for more information.
 ****************/
 
+
 //In postman, make sure you're making a POST
 //request and your localhost address points to localhost:3000
 //Under the address bar, click on 'Body', then raw to pass 

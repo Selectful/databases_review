@@ -31,6 +31,7 @@ row. Don't forget to sync your table below and add it to module.exports
 
 
 
+
 //This code is necesarry for creating your table in the DB
 //It syncs the particular table to the table. You should 
 //do this  
