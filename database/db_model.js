@@ -4,16 +4,6 @@ const express = require('express')
 const router = express.Router()
 const db = require('./db_config')
 
-/***************
-TASK:
-
-Below, complete 2 routes: '/api/addUser', which adds a single
-user to the DB and '/api/getAllUsers', which returns 
-all the users that exist in the database. Refer to the postCookie
-code below for an example. Also, refer to the
-sequelize docs for more information.
-****************/
-
 router.post('/api/postCookie', (req,res) => {
 	//Use the create method on the table
 	//Make sure your columns match the ones you
@@ -22,7 +12,7 @@ router.post('/api/postCookie', (req,res) => {
 		kind: req.body.kind,
 		delicious: req.body.delicious
 	})
-	//Sequlize methods return a promise
+	//Sequelize methods return a promise
 	//which holds the value you just created 
 	//or the values you want to get. You can send 
 	//this data back to the client or see it in postman
@@ -33,6 +23,16 @@ router.post('/api/postCookie', (req,res) => {
 
 
 })
+
+/***************
+TASK:
+
+Below, complete 2 routes: '/api/addUser', which adds a single
+user to the DB and '/api/getAllUsers', which returns 
+all the users that exist in the database. Refer to the postCookie
+code below for an example. Also, refer to the
+sequelize docs for more information.
+****************/
 
 //In postman, make sure you're making a POST
 //request and your localhost address points to localhost:3000

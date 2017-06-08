@@ -3,7 +3,6 @@
 //define table columns 
 const Sequelize = require('sequelize')
 
-
 //Pass in the url to the place where you are hosting your database
 const db = new Sequelize('POSTGRES_URL_HERE!')
 
@@ -29,8 +28,6 @@ Add 3 different collumns to the table: Name, Age, and Birthday
 Remember: an id is automatically generated when inserting a 
 row. Don't forget to sync your table below and add it to module.exports
 ****************/
-
-
 
 
 

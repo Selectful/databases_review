@@ -27,7 +27,7 @@
 1. Creating schema: http://docs.sequelizejs.com/class/lib/sequelize.js~Sequelize.html
 2. Available data types: http://docs.sequelizejs.com/variable/index.html#static-variable-DataTypes
 3. Querying your database: http://docs.sequelizejs.com/en/latest/api/model/
-4. Sending the correct data https://github.com/expressjs/body-parser
+4. Parsing data https://github.com/expressjs/body-parser
 
 ###CREDIT:
 

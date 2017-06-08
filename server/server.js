@@ -1,22 +1,29 @@
 const express = require('express')
 const morgan = require('morgan')
-const bodyParser = require('body-parser')
 const app = express()
 const routes = require('../database/db_model')
 
-//Requiring the database in the server file runs the code
-//in the file, syncing the tables and connecting to the database
-const db = require('../database/db_config')
+/***************
+TASK:
+
+Require the database in the server file to run the code,
+sync the tables and connect to the database
+
+****************/
 
 //Morgan lets us see the requests to the server that we make
 app.use(morgan('dev'))
 
-//Body parser allows us to access the body property on the
-//request object when sending data
-app.use(bodyParser.json())
 
-// required if posting the data is sent in CONTENT-TYPE x-www-form-urlendcoded
-// app.use(bodyParser.urlencoded({ extended: false }))
+/***************
+TASK:
+
+Below, use the bodyParser middleware to access the body property
+on the request object when sending data.
+
+If sending data using CONTENT-TYPE x-www-form-urlencoded, you will need
+to parse the applcation using a bodyParser OPTION
+****************/
 
 
 //Using express middleware to route all requests
