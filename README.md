@@ -31,4 +31,4 @@
 
 ###CREDIT:
 
-1. Original content of this review/ original-repo: https://github.com/lmordell
+1. Original content of this review/ original-repo: https://github.com/lmordell/database_review
