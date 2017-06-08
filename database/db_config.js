@@ -2,12 +2,10 @@
 //This will give you access to the methods in the library to 
 //define table columns 
 const Sequelize = require('sequelize')
-const POSTGRES_URL = require('../config')
 
 
 //Pass in the url to the place where you are hosting your database
-const db = new Sequelize(POSTGRES_URL)
-
+const db = new Sequelize('POSTGRES_URL_HERE!')
 
 
 //Define a table called 'cookies'

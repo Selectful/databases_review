@@ -12,7 +12,7 @@
 1. Go to https://www.elephantsql.com/, sign up (it's free), then create a new database instance
 2. In your `db_config.js` file, paste the instance url to your sequelize representation
 
-  a. If you want to make your codebase more modular, create a config.js file in the root directory exporting the instance url, and importing it to the db_config file. 
+  a. If you want to make your codebase more modular, create a `config.js` file in the root directory exporting the instance url, and importing it to the `db_config.js` file. 
 
   b. Make sure to gitignore the file IF you are commiting your changes!
 
