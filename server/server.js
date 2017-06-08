@@ -1,42 +1,31 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const morgan = require('morgan');
-const path = require('path');
-const cors = require('cors');
-
-const registerApi = require('./api')
-// SERVER SERVING IN THESE PORTS
-const PORT = process.env.PORT || 3000;
-
-// EXPRESS ESSENTIALS
+const express = require('express')
+const morgan = require('morgan')
+const bodyParser = require('body-parser')
 const app = express()
-  .use(cors())
-  .use(bodyParser.json())
-  .use(bodyParser.urlencoded({
-    extended: true
-  }))
-  .use(morgan('dev'))
-  .use(express.static(path.join(__dirname, '/')))
+const routes = require('../database/db_model')
 
-// PULLING SERVER INTO API CONTEXT
-registerApi(app);
+//Requiring the database in the server file runs the code
+//in the file, syncing the tables and connecting to the database
+const db = require('../database/db_config')
 
-// ERROR HANDLER
-app.use((err, req, res, next) => {
-  if(err) {
-    res.status(err.stausCode || err.status || 500)
-      .send(err.data || err.message || {});
-  } else {
-    next();
-  }
-});
+//Morgan lets us see the requests to the server that we make
+app.use(morgan('dev'))
 
-// CATCHER
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/'))
-})
+//Body parser allows us to access the body property on the
+//request object when sending data
+app.use(bodyParser.json())
 
-// SERVER LISTENER
-const server = app.listen(PORT, () => {
-  console.log(`Server is serving up on ${PORT}`);
-});
+// required if posting the data is sent in CONTENT-TYPE x-www-form-urlendcoded
+// app.use(bodyParser.urlencoded({ extended: false }))
+
+
+//Using express middleware to route all requests
+//to the file where I handle my GET/POST requests
+app.use('/', routes)
+
+
+
+const port = process.env.PORT || 3000
+
+app.listen(port, () => console.log(`server is listening on port ${port}`))
+

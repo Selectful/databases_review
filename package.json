@@ -2,20 +2,18 @@
   "name": "database_review",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon ./server/server.js"
   },
   "author": "Alexandre Kim",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.2",
-    "cors": "^2.8.3",
     "express": "^4.15.3",
     "morgan": "^1.8.2",
-    "mysql": "^2.13.0",
     "nodemon": "^1.11.0",
-    "path": "^0.12.7"
+    "pg": "^6.2.3",
+    "sequelize": "^4.0.0"
   }
 }
