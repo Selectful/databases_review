@@ -2,10 +2,10 @@
 //This will give you access to the methods in the library to 
 //define table columns 
 const Sequelize = require('sequelize')
-
+const POSTGRES_URL = require('../config')
 
 //Pass in the url to the place where you are hosting your database
-const db = new Sequelize('POSTGRES_URL_HERE!')
+const db = new Sequelize(POSTGRES_URL)
 
 
 //Define a table called 'cookies'
@@ -30,6 +30,19 @@ Remember: an id is automatically generated when inserting a
 row. Don't forget to sync your table below and add it to module.exports
 ****************/
 
+const Users = db.define('users', {
+  //Define a collumn in the table
+  name: {
+    //Define the collumn's data type and set a character limit
+    type: Sequelize.STRING()
+  },
+  age: {
+    type: Sequelize.INTEGER()
+  },
+  birthday: {
+    type: Sequelize.DATEONLY()
+  } 
+})
 
 
 
@@ -38,6 +51,7 @@ row. Don't forget to sync your table below and add it to module.exports
 //It syncs the particular table to the table. You should 
 //do this  
 Cookies.sync()
+Users.sync()
 
 //In the code below, we pass in { force: true }. Here, sync drops 
 //all data from that particular table and starts it fresh
@@ -45,6 +59,7 @@ Cookies.sync()
 //to the schema
 
 // Cookies.sync({ force: true })
+// Users.sync({ force: true })
 
 
 //This code connects your application to the database
@@ -60,5 +75,6 @@ db.authenticate()
 
 //Pass in your user table in module.exports
 module.exports = {
-  Cookies: Cookies
+  Cookies: Cookies,
+  Users: Users
 };

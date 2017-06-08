@@ -40,18 +40,30 @@ router.post('/api/postCookie', (req,res) => {
 //in an example object. Make sure you set it as 
 //'JSON application/JSON' instead of 'text'
 router.post('/api/addUser', (req, res) => {
-
+  db.Users.create({
+    name: req.body.name,
+    age: req.body.age,
+    birthday: req.body.birthday
+  })
+  .then(user => res.send(user))
+  .catch(error => res.send(error))
 })
 
 //In postman, make sure you're making a GET request
 router.get('/api/getAllUsers', (req, res) => {
-
+  db.Users.findAll()
+  .then(users => res.send(users))
+  .catch(error => res.send(error))
 })
 
 
 //***EXTRA CREDIT! Get one user from the database***
 router.get('/api/getOneUser/:name/', (req,res) => {
-
+  db.Users.find({
+    where: {name: req.params.name}
+  })
+  .then(user => res.send(user))
+  .catch(error => res.send(error))
 })
 
 
